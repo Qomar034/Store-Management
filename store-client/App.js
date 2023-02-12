@@ -147,14 +147,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     backgroundColor: "white",
-    shadowColor: "black",
-
+    
     position: 'relative',
     left: "5%",
-
+    
     borderRadius: 15,
-    borderStyle: "solid",
-    borderWidth: 1,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.99,
+    shadowRadius: 3.84,
+    
+    elevation: 9,
+
   },
 
   text1: {
@@ -246,26 +253,37 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     position: 'relative',
     left: "5%",
-    marginTop: 20,
+    marginTop: 40,
   },
 
   menuRow: {
-    marginTop: 5,
     justifyContent: "space-between",
     flexDirection: "row",
     width: "100%",
-    height: "50%",
+    height: 130,
     backgroundColor: "transparent",
     flexWrap: "wrap"
   },
 
   menu: {
-    width: "30%",
-    height: "80%",
+    width: 110,
+    height: 110,
     backgroundColor: "white",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
+
+    borderRadius: 15,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 3,
   },
 
   iconContainer: {
