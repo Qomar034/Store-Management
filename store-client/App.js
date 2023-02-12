@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import MenuButton from './components/MenuButton';
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -10,11 +12,17 @@ export default function App() {
             <Text style={styles.text2}>KODE TOKO: 12019982 | PADANG</Text>
             <Text style={styles.text1}>TOKO SUMBER JAYA</Text>
             <Text style={styles.text2}>Sales: THEO ADIPTA</Text>
-            <View style={styles.notificationBox}>
-              <Image 
-              source={require("./assets/bell.png")}
-              style={styles.notification} ></Image>
-            </View>
+            
+            <Pressable style={({pressed}) => { 
+              return pressed
+              ? styles.notificationBoxPressed
+              : styles.notificationBox
+              }}>
+                <Image 
+                source={require("./assets/bell.png")}
+                style={styles.notification} ></Image>
+            </Pressable>
+
           </View>
 
           <View style={styles.lowerBox}>
@@ -39,62 +47,67 @@ export default function App() {
 
           <View style={styles.menuBox}>
             <View style={styles.menuRow}>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                  source={require("./assets/doc.png")}
-                  style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Buat</Text>
-                <Text style={styles.text8}>Pesanan</Text>
-              </View>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                    source={require("./assets/cart.png")}
-                    style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Riwayat</Text>
-                <Text style={styles.text8}>Pesanan</Text>
-              </View>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                    source={require("./assets/wallet.png")}
-                    style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Riwayat</Text>
-                <Text style={styles.text8}>Bayar</Text>
-              </View>
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Buat"} 
+                  text2={"Pesanan"} 
+                  image={require("./assets/doc.png")}/>}
+              ></Pressable>
+
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Riwayat"} 
+                  text2={"Pesanan"} 
+                  image={require("./assets/cart.png")}/>}
+              ></Pressable>
+
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Riwayat"} 
+                  text2={"Bayar"} 
+                  image={require("./assets/wallet.png")}/>}
+              ></Pressable>
             </View>
+
             <View style={styles.menuRow}>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                    source={require("./assets/people.png")}
-                    style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Daftar</Text>
-                <Text style={styles.text8}>Supir</Text>
-              </View>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                    source={require("./assets/location.png")}
-                    style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Daftar</Text>
-                <Text style={styles.text8}>Alamat</Text>
-              </View>
-              <View style={styles.menu}>
-                <View style={styles.iconContainer}>
-                  <Image 
-                    source={require("./assets/switch.png")}
-                    style={styles.icon} ></Image>
-                </View>
-                <Text style={styles.text8}>Retur</Text>
-                <Text style={styles.text8}>Barang</Text>
-              </View>
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Daftar"} 
+                  text2={"Supir"} 
+                  image={require("./assets/people.png")}/>}
+              ></Pressable>
+
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Daftar"} 
+                  text2={"Alamat"} 
+                  image={require("./assets/location.png")}/>}
+              ></Pressable>
+
+              <Pressable 
+              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              children={({pressed}) => 
+                <MenuButton 
+                  pressed={pressed} 
+                  text1={"Retur"} 
+                  text2={"Barang"} 
+                  image={require("./assets/switch.png")}/>}
+              ></Pressable>
             </View>
           </View>
         </View>
@@ -268,7 +281,7 @@ const styles = StyleSheet.create({
   menu: {
     width: 110,
     height: 110,
-    backgroundColor: "white",
+    
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
@@ -286,33 +299,25 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
 
-  iconContainer: {
-    width: "40%",
-    height: "45%",
-    backgroundColor: "white",
-    borderRadius: 50,
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-
-  icon: {
-    width: "75%",
-    height: "75%",
-  },
-
-  text8: {
-    color: "#ff6823",
-    fontSize: 15,
-    textAlign: "center",
-  },
-
   notificationBox: {
     width: 35,
     height: 35,
     backgroundColor: "white",
     position: "absolute",
     top: 0,
+    right: 10,
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
+
+  notificationBoxPressed: {
+    width: 35,
+    height: 35,
+    backgroundColor: "white",
+    position: "absolute",
+    top: 2,
     right: 10,
     justifyContent: "center",
     alignContent: "center",
