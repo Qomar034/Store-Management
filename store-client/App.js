@@ -10,6 +10,11 @@ export default function App() {
             <Text style={styles.text2}>KODE TOKO: 12019982 | PADANG</Text>
             <Text style={styles.text1}>TOKO SUMBER JAYA</Text>
             <Text style={styles.text2}>Sales: THEO ADIPTA</Text>
+            <View style={styles.notificationBox}>
+              <Image 
+              source={require("./assets/bell.png")}
+              style={styles.notification} ></Image>
+            </View>
           </View>
 
           <View style={styles.lowerBox}>
@@ -228,7 +233,7 @@ const styles = StyleSheet.create({
 
   displayBox: {
     width: "40%",
-    height: "100%",
+    height: 70,
     backgroundColor: "#fef9ed",
     marginHorizontal: 15,
     borderRadius: 25,
@@ -283,4 +288,22 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "center",
   },
+
+  notificationBox: {
+    width: 35,
+    height: 35,
+    backgroundColor: "white",
+    position: "absolute",
+    top: 0,
+    right: 10,
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
+
+  notification: {
+    width: "45%",
+    height: "45%",
+  }
 });
