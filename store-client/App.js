@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
   return (
@@ -30,6 +30,67 @@ export default function App() {
                   <Text style={styles.text6}>Total Tagihan</Text>
                   <Text style={styles.text7}>Rp. 0</Text>
               </View>
+          </View>
+
+          <View style={styles.menuBox}>
+            <View style={styles.menuRow}>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                  source={require("./assets/doc.png")}
+                  style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Buat</Text>
+                <Text style={styles.text8}>Pesanan</Text>
+              </View>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                    source={require("./assets/cart.png")}
+                    style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Riwayat</Text>
+                <Text style={styles.text8}>Pesanan</Text>
+              </View>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                    source={require("./assets/wallet.png")}
+                    style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Riwayat</Text>
+                <Text style={styles.text8}>Bayar</Text>
+              </View>
+            </View>
+            <View style={styles.menuRow}>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                    source={require("./assets/people.png")}
+                    style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Daftar</Text>
+                <Text style={styles.text8}>Supir</Text>
+              </View>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                    source={require("./assets/location.png")}
+                    style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Daftar</Text>
+                <Text style={styles.text8}>Alamat</Text>
+              </View>
+              <View style={styles.menu}>
+                <View style={styles.iconContainer}>
+                  <Image 
+                    source={require("./assets/switch.png")}
+                    style={styles.icon} ></Image>
+                </View>
+                <Text style={styles.text8}>Retur</Text>
+                <Text style={styles.text8}>Barang</Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -67,7 +128,7 @@ const styles = StyleSheet.create({
     width: "90%",
     height: "50%",
     backgroundColor: "transparent",
-    marginTop: 10,
+    marginVertical: 8,
     position: "relative",
     top: "5%",
     left: "5%"
@@ -173,4 +234,53 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
 
+  menuBox: {
+    width: "90%",
+    height: "150%",
+    backgroundColor: "transparent",
+    flexDirection: "column",
+    position: 'relative',
+    left: "5%",
+    marginTop: 20,
+  },
+
+  menuRow: {
+    marginTop: 5,
+    justifyContent: "space-between",
+    flexDirection: "row",
+    width: "100%",
+    height: "50%",
+    backgroundColor: "transparent",
+    flexWrap: "wrap"
+  },
+
+  menu: {
+    width: "30%",
+    height: "80%",
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+  },
+
+  iconContainer: {
+    width: "40%",
+    height: "45%",
+    backgroundColor: "white",
+    borderRadius: 50,
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+  },
+
+  icon: {
+    width: "75%",
+    height: "75%",
+  },
+
+  text8: {
+    color: "#ff6823",
+    fontSize: 15,
+    textAlign: "center",
+  },
 });
