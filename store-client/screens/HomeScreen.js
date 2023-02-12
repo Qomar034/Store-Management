@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import MenuButton from '../components/MenuButton';
 
 export default function HomeScreen() {
+  let navigate = useNavigation()
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container1}>
@@ -13,11 +15,12 @@ export default function HomeScreen() {
             <Text style={styles.text1}>TOKO SUMBER JAYA</Text>
             <Text style={styles.text2}>Sales: THEO ADIPTA</Text>
             
-            <Pressable style={({pressed}) => { 
-              return pressed
+            <Pressable 
+            onPress={() => navigate.navigate("Notifikasi")}
+            style={({pressed}) => pressed
               ? styles.notificationBoxPressed
               : styles.notificationBox
-              }}>
+              }>
                 <Image 
                 source={require("../assets/bell.png")}
                 style={styles.notification} ></Image>

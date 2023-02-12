@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, Text } from "react-native"
 import AccountScreen from "../screens/AccountScreen"
 import ChatScreen from "../screens/ChatScreen"
 import HomeScreen from "../screens/HomeScreen"
+import { HomeStack } from "../screens/StackedScreens"
 
 const Tab = createBottomTabNavigator()
 
@@ -14,7 +15,7 @@ export default BottomTab = () => {
                 tabBarIcon: ({color, focused, size}) => tabIconFunc(route.name, focused), ...containerTab,
         })}>
             <Tab.Screen name="Chat" component={ ChatScreen } />
-            <Tab.Screen name="Home" component={ HomeScreen } />
+            <Tab.Screen name="Home" component={ HomeStack } />
             <Tab.Screen name="Account" component={ AccountScreen } />
         </Tab.Navigator>
     )
