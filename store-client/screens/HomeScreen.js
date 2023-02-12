@@ -48,7 +48,7 @@ export default function HomeScreen() {
           <View style={styles.menuBox}>
             <View style={styles.menuRow}>
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -58,7 +58,7 @@ export default function HomeScreen() {
               ></Pressable>
 
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -68,7 +68,7 @@ export default function HomeScreen() {
               ></Pressable>
 
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -80,7 +80,7 @@ export default function HomeScreen() {
 
             <View style={styles.menuRow}>
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -90,7 +90,7 @@ export default function HomeScreen() {
               ></Pressable>
 
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -100,7 +100,7 @@ export default function HomeScreen() {
               ></Pressable>
 
               <Pressable 
-              style={({pressed}) => [{backgroundColor: pressed ? "#ff6823" : "white"}, styles.menu]}
+              style={({pressed}) => pressed ? styles.pressedMenu : styles.menu}
               children={({pressed}) => 
                 <MenuButton 
                   pressed={pressed} 
@@ -297,6 +297,19 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 3,
+    backgroundColor: "white",
+  },
+
+  pressedMenu: {
+    width: 110,
+    height: 110,
+    
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+
+    borderRadius: 15,
+    backgroundColor: "#ff6823",
   },
 
   notificationBox: {
