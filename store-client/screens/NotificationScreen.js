@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Loader from "../components/Loader";
 import NotificationCard from "../components/NotificationCard";
 
 export default function NotificationScreen(){
+    let [loading, setLoading] = useState(true)
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -20,6 +24,9 @@ export default function NotificationScreen(){
                 <NotificationCard read={false}/>
                 <NotificationCard read={false}/>
             </View>
+        <View style={styles.loader}>
+            <Loader show={loading}/>
+        </View>
         </SafeAreaView>
     )
 }
@@ -77,5 +84,13 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "space-between",
         backgroundColor: "white", 
-    }
+    },
+
+    loader: {
+        backgroundColor: 'transparent',
+        position: 'absolute',
+        bottom: "1%",
+        width: "100%",
+        height: "20%"
+      },
 })

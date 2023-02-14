@@ -1,11 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import Loader from '../components/Loader';
 import MenuButton from '../components/MenuButton';
 
 export default function HomeScreen() {
   let navigate = useNavigation()
+  let [loading, setLoading] = useState(false)
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container1}>
@@ -115,6 +119,9 @@ export default function HomeScreen() {
           </View>
         </View>
       </View>
+      <View style={styles.loader}>
+        <Loader show={loading}/>
+      </View>
 
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -122,6 +129,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#fef9ed',
@@ -344,5 +352,13 @@ const styles = StyleSheet.create({
   notification: {
     width: "45%",
     height: "45%",
-  }
+  },
+
+  loader: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    bottom: "0%",
+    width: "100%",
+    height: "20%"
+  },
 });
